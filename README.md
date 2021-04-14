@@ -3,7 +3,7 @@
 ### Python binaries:
 - opencv-python
 - numpy
-- pytesseract
+- pytesseract 0.3.4
 
 ### Sources
 * https://www.python.org/downloads/
