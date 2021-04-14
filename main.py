@@ -22,7 +22,7 @@ kp1, des1 = orb.detectAndCompute(imQ, None)
 
 path = 'compareData'
 myPictureList = os.listdir(path)
-print(myPictureList)
+#print(myPictureList)
 for j, y in enumerate(myPictureList):
     image = cv2.imread(path + "/" + y)
     kp2, des2 = orb.detectAndCompute(image, None)
@@ -44,7 +44,7 @@ for j, y in enumerate(myPictureList):
     imageMask = np.zeros_like(imageShow)
 
     myData = []
-    print(f' Extracting from {myPictureList[j]}')
+    print(f' ################################### Extracting from {myPictureList[j]} ###################################')
 
     for x, r in enumerate(roi):
         cv2.rectangle(imageMask, ((r[0][0]), r[0][1]), ((r[1][0]), r[1][1]), (0, 255, 0), cv2.FILLED)
@@ -64,6 +64,11 @@ for j, y in enumerate(myPictureList):
             else: totalPixels=0
             print(f'{r[3]}: {totalPixels}')
             myData.append(totalPixels)
+
+    with open('sampleData/DataOutput.csv', 'a+') as f:
+        for data in myData:
+            f.write((str(data)+','))
+        f.write('\n')
 
     cv2.imshow(y + "2", imageShow)
 # out put image
