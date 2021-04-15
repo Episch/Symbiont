@@ -70,7 +70,7 @@ for j, y in enumerate(myPictureList):
             f.write((str(data)+','))
         f.write('\n')
 
-    cv2.imshow(y + "2", imageShow)
+    cv2.imshow(y, imageShow)
 # out put image
 # cv2.imshow("Keypoints", imKp1)
 # cv2.imshow("Output", imQ)
